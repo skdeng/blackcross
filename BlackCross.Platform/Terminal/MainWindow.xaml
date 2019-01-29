@@ -1,0 +1,130 @@
+﻿<Window x:Class="BlackCross.Platform.Terminal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:extensions="clr-namespace:BlackCross.Platform.Terminal.Extensions"
+        xmlns:views="clr-namespace:BlackCross.Platform.Terminal.Views"
+        xmlns:converters="clr-namespace:BlackCross.Platform.Terminal.Converters"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1800">
+
+  <Window.Resources>
+    <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+  </Window.Resources>
+
+  <DockPanel>
+    <Menu DockPanel.Dock="Top" Background="White" Margin="8 0 0 0">
+      <MenuItem Header="Strategies">
+        <MenuItem x:Name="LoadStrategyMenuItem" Header="Load Strategy" Click="LoadStrategyMenuItem_Click" />
+        <MenuItem x:Name="LoadStrategyFolderMenuItem" Header="Load Strategies Folder" Click="LoadStrategyFolderMenuItem_Click" />
+      </MenuItem>
+      <MenuItem Header="Markets">
+        <MenuItem x:Name="LoadMarketMenuItem" Header="Load Market" Click="LoadMarketMenuItem_Click" />
+        <MenuItem x:Name="LoadMarketFolderMenuItem" Header="Load Markets Folder" Click="LoadMarketFolderMenuItem_Click" />
+      </MenuItem>
+      <MenuItem Header="Options">
+        <MenuItem x:Name="ShowConsoleMenuItem" Header="Show Console" IsCheckable="True" Checked="ShowConsoleMenuItem_Checked" Unchecked="ShowConsoleMenuItem_Unchecked" />
+        <MenuItem Header="Console Log Level">
+          <MenuItem x:Name="ConsoleLogLevelDebugMenuItem" Header="Debug" IsCheckable="True" extensions:MenuItemExtensions.GroupName="ConsoleLogLevelGroup" Checked="ConsoleLogLevelMenuItem_Checked" />
+          <MenuItem x:Name="ConsoleLogLevelInfoMenuItem" Header="Info" IsCheckable="True" extensions:MenuItemExtensions.GroupName="ConsoleLogLevelGroup" Checked="ConsoleLogLevelMenuItem_Checked" />
+          <MenuItem x:Name="ConsoleLogLevelWarnMenuItem" Header="Warning" IsCheckable="True" extensions:MenuItemExtensions.GroupName="ConsoleLogLevelGroup" Checked="ConsoleLogLevelMenuItem_Checked" />
+          <MenuItem x:Name="ConsoleLogLevelErrorMenuItem" Header="Error only" IsCheckable="True" extensions:MenuItemExtensions.GroupName="ConsoleLogLevelGroup" Checked="ConsoleLogLevelMenuItem_Checked" />
+        </MenuItem>
+      </MenuItem>
+    </Menu>
+
+    <Grid DockPanel.Dock="Left" Width="200" Margin="15">
+      <Grid.RowDefinitions>
+        <RowDefinition />
+        <RowDefinition />
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+
+      <StackPanel Grid.Row="0">
+        <TextBlock FontWeight="Bold">
+          Strategies
+        </TextBlock>
+        <StackPanel>
+          <ListBox
+            x:Name="StrategiesListBox"
+            ItemsSource="{Binding StrategiesList, Mode=OneWay}"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            Height="Auto">
+            <ListBox.ContextMenu>
+              <ContextMenu>
+                <MenuItem Header="Configuration schema" Click="StrategyGetConfigurationSchema"/>
+                <MenuItem Header="Properties" Click="StrategyPropertiesContextMenuItem_Click"/>
+              </ContextMenu>
+            </ListBox.ContextMenu>
+          </ListBox>
+        </StackPanel>
+      </StackPanel>
+      
+      <StackPanel Grid.Row="1" Visibility="Hidden">
+        <TextBlock FontWeight="Bold">
+          Markets
+        </TextBlock>
+        <StackPanel>
+          <ListBox
+            x:Name="MarketsListBox"
+            ItemsSource="{Binding MarketsList, Mode=OneWay}"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            Height="Auto">
+            <ListBox.ContextMenu>
+              <ContextMenu>
+                <MenuItem Header="Configuration schema" Click="StrategyGetConfigurationSchema"/>
+              </ContextMenu>
+            </ListBox.ContextMenu>
+          </ListBox>
+        </StackPanel>
+      </StackPanel>
+
+      <Button
+        x:Name="StartButton"
+        Grid.Row="2"
+        Click="StartButton_Click"
+        VerticalAlignment="Bottom"
+        Height="50"
+        Background="{Binding StartButtonBackgroundColor}">
+        <TextBlock
+          x:Name="StartButtonText"
+          Text="{Binding StartButtonText}" />
+      </Button>
+    </Grid>
+
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition MinWidth="500"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
+      </Grid.ColumnDefinitions>
+
+      <views:PriceChart
+        x:Name="PriceChart"
+        Grid.Column="0"
+        Margin="25,5,25,5"/>
+
+      <GridSplitter
+        Grid.Column="1"
+        Grid.ColumnSpan="1"
+        ResizeDirection="Columns"
+        Height="Auto"
+        Width="1"
+        VerticalAlignment="Stretch"
+        HorizontalAlignment="Center"
+        Margin="0.5"
+        Background="DarkGray"
+        Visibility="{Binding IsConsoleVisible, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+      <Grid
+        Grid.Column="2"
+        Margin="5"
+        Visibility="{Binding IsConsoleVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+        <views:GuiConsole x:Name="ConsoleLog" />
+      </Grid>
+    </Grid>
+  </DockPanel>
+</Window>

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>BlackCross.SandBox.HistoricalTest</AssemblyName>
+    <RootNamespace>BlackCross.SandBox.HistoricalTest</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Markets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BlackCross.Core\BlackCross.Core.csproj" />
+  </ItemGroup>
+
+</Project>

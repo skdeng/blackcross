@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>BlackCross.TradeStrategies.SimpleMeanReversalStrategy</AssemblyName>
+    <RootNamespace>BlackCross.TradeStrategies.SimpleMeanReversalStrategy</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BlackCross.Core\BlackCross.Core.csproj" />
+  </ItemGroup>
+
+</Project>

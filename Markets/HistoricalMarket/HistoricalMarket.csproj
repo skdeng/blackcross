@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>BlackCross.Markets.HistoricalMarket</AssemblyName>
+    <RootNamespace>BlackCross.Markets.HistoricalMarket</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BlackCross.Core\BlackCross.Core.csproj" />
+  </ItemGroup>
+
+</Project>

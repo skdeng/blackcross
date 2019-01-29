@@ -3,7 +3,57 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackCross", "BlackCross\BlackCross.csproj", "{CDD97309-426F-4A62-B9CA-5D52D1DC6B95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackCross.Core", "BlackCross.Core\BlackCross.Core.csproj", "{B0DC7E1A-7FAC-4922-BA50-73D99FCCE4F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F43FA20E-6346-4E36-B83A-3112F28C1BCC}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HistoricalData", "HistoricalData", "{106A1921-B388-4E63-9B82-7C2D96993489}"
+	ProjectSection(SolutionItems) = preProject
+		HistoricalData\process_googlefinance.py = HistoricalData\process_googlefinance.py
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Daily", "Daily", "{ECC07A1F-E82F-4668-A1CF-1649329FA33D}"
+	ProjectSection(SolutionItems) = preProject
+		BlackCross.SandBox\HistoricalData\Daily\^dji_d.csv = BlackCross.SandBox\HistoricalData\Daily\^dji_d.csv
+		BlackCross.SandBox\HistoricalData\Daily\^IXIC.csv = BlackCross.SandBox\HistoricalData\Daily\^IXIC.csv
+		BlackCross.SandBox\HistoricalData\Daily\MSFT.csv = BlackCross.SandBox\HistoricalData\Daily\MSFT.csv
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackCross.Core.Test", "BlackCross.Core.Test\BlackCross.Core.Test.csproj", "{DA8082B1-2C8E-4A71-B1D7-D8DBECF0903D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{FE2BCCEC-67EA-494F-A751-BB180FD21373}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "log4net", "log4net", "{B0159AA6-331C-4EC5-92D8-81D7C36D6F23}"
+	ProjectSection(SolutionItems) = preProject
+		config\log4net\console.log.xml = config\log4net\console.log.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlackCross.Platform", "BlackCross.Platform", "{E294E142-1483-486D-9CDD-A5E8911D8E9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terminal", "BlackCross.Platform\Terminal\Terminal.csproj", "{AF92DC8B-6A95-4F3A-A266-8FD2BE2C9C20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Minute", "Minute", "{90988FC3-2E6F-44D2-A02C-1306DC298989}"
+	ProjectSection(SolutionItems) = preProject
+		HistoricalData\Minute\fb.csv = HistoricalData\Minute\fb.csv
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TradeStrategies", "TradeStrategies", "{314F4D13-1D63-4A78-9F21-7604DE2254F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleMeanReversalStrategy", "TradeStrategies\SimpleMeanReversalStrategy\SimpleMeanReversalStrategy.csproj", "{92B9144A-8D91-441C-BAC9-AE986C66A926}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDSetupStrategy", "TradeStrategies\TDSetupStrategy\TDSetupStrategy.csproj", "{5009562E-7A40-477A-9256-8EBF3CA6F4DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli", "BlackCross.Platform\Cli\Cli.csproj", "{2299CD3A-01FF-42F4-9C68-A40FBA8CA0E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Markets", "Markets", "{2679D92E-4A92-4C2D-99FB-3AAD7253A142}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HistoricalMarket", "Markets\HistoricalMarket\HistoricalMarket.csproj", "{A960FB82-91D4-4867-989B-ABB0E179B2BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HistoricalMarket.Test", "Markets\HistoricalMarket.Test\HistoricalMarket.Test.csproj", "{4BF7845A-6DAD-43D5-83C4-BD9AB3CD24F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +61,54 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CDD97309-426F-4A62-B9CA-5D52D1DC6B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDD97309-426F-4A62-B9CA-5D52D1DC6B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDD97309-426F-4A62-B9CA-5D52D1DC6B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDD97309-426F-4A62-B9CA-5D52D1DC6B95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0DC7E1A-7FAC-4922-BA50-73D99FCCE4F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0DC7E1A-7FAC-4922-BA50-73D99FCCE4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0DC7E1A-7FAC-4922-BA50-73D99FCCE4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0DC7E1A-7FAC-4922-BA50-73D99FCCE4F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA8082B1-2C8E-4A71-B1D7-D8DBECF0903D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA8082B1-2C8E-4A71-B1D7-D8DBECF0903D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA8082B1-2C8E-4A71-B1D7-D8DBECF0903D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA8082B1-2C8E-4A71-B1D7-D8DBECF0903D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF92DC8B-6A95-4F3A-A266-8FD2BE2C9C20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF92DC8B-6A95-4F3A-A266-8FD2BE2C9C20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF92DC8B-6A95-4F3A-A266-8FD2BE2C9C20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF92DC8B-6A95-4F3A-A266-8FD2BE2C9C20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92B9144A-8D91-441C-BAC9-AE986C66A926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92B9144A-8D91-441C-BAC9-AE986C66A926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92B9144A-8D91-441C-BAC9-AE986C66A926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92B9144A-8D91-441C-BAC9-AE986C66A926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5009562E-7A40-477A-9256-8EBF3CA6F4DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5009562E-7A40-477A-9256-8EBF3CA6F4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5009562E-7A40-477A-9256-8EBF3CA6F4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5009562E-7A40-477A-9256-8EBF3CA6F4DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2299CD3A-01FF-42F4-9C68-A40FBA8CA0E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2299CD3A-01FF-42F4-9C68-A40FBA8CA0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2299CD3A-01FF-42F4-9C68-A40FBA8CA0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2299CD3A-01FF-42F4-9C68-A40FBA8CA0E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A960FB82-91D4-4867-989B-ABB0E179B2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A960FB82-91D4-4867-989B-ABB0E179B2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A960FB82-91D4-4867-989B-ABB0E179B2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A960FB82-91D4-4867-989B-ABB0E179B2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BF7845A-6DAD-43D5-83C4-BD9AB3CD24F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BF7845A-6DAD-43D5-83C4-BD9AB3CD24F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BF7845A-6DAD-43D5-83C4-BD9AB3CD24F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BF7845A-6DAD-43D5-83C4-BD9AB3CD24F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{106A1921-B388-4E63-9B82-7C2D96993489} = {F43FA20E-6346-4E36-B83A-3112F28C1BCC}
+		{ECC07A1F-E82F-4668-A1CF-1649329FA33D} = {106A1921-B388-4E63-9B82-7C2D96993489}
+		{FE2BCCEC-67EA-494F-A751-BB180FD21373} = {F43FA20E-6346-4E36-B83A-3112F28C1BCC}
+		{B0159AA6-331C-4EC5-92D8-81D7C36D6F23} = {FE2BCCEC-67EA-494F-A751-BB180FD21373}
+		{AF92DC8B-6A95-4F3A-A266-8FD2BE2C9C20} = {E294E142-1483-486D-9CDD-A5E8911D8E9B}
+		{90988FC3-2E6F-44D2-A02C-1306DC298989} = {106A1921-B388-4E63-9B82-7C2D96993489}
+		{92B9144A-8D91-441C-BAC9-AE986C66A926} = {314F4D13-1D63-4A78-9F21-7604DE2254F0}
+		{5009562E-7A40-477A-9256-8EBF3CA6F4DB} = {314F4D13-1D63-4A78-9F21-7604DE2254F0}
+		{2299CD3A-01FF-42F4-9C68-A40FBA8CA0E3} = {E294E142-1483-486D-9CDD-A5E8911D8E9B}
+		{A960FB82-91D4-4867-989B-ABB0E179B2BC} = {2679D92E-4A92-4C2D-99FB-3AAD7253A142}
+		{4BF7845A-6DAD-43D5-83C4-BD9AB3CD24F7} = {2679D92E-4A92-4C2D-99FB-3AAD7253A142}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D6614F3F-6F74-43EE-B9D9-0047C7131A95}
